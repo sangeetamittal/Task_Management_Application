@@ -9,7 +9,11 @@ dotenv.config()  //Loading variables from .env
 const app = express()  //Initializing express
 
 //Middlewares
-app.use(cors())
+app.use(cors({
+    origin: process.env.CLIENT_URL,
+    methods: ['GET', 'POST'],
+    credentials: true
+}));
 app.use(express.json())
 
 //Loading routes
@@ -31,12 +35,22 @@ mongoose.connect(process.env.MONGO_URL)
 const server = http.createServer(app)
 const io = socketIO(server, {
     cors: {
-        origin: '*',
-        methods: ['GET', 'POST']
+        origin: process.env.CLIENT_URL,
+        methods: ['GET', 'POST'],
+        credentials: true
     }
 });
 const socketHandler = require('./sockets/socketManager')
 socketHandler(io, app);
+
+process.on('unhandledRejection', err => {
+  console.error('Unhandled rejection:', err);
+  process.exit(1); // crash safely
+});
+
+app.get('/', (req, res) => {
+  res.send('Server is running.');
+});
 
 //Starting Server
 const PORT = process.env.PORT || 5000;
@@ -44,4 +58,4 @@ server.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 })
 
-module.exports=app;
+module.exports = app;
