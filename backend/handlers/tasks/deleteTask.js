@@ -1,4 +1,5 @@
 const Task = require('../../models/Task')
+const { validationResult } = require('express-validator');
 
 // Only Manager can delete task
 const deleteTask = async (req, res) => {

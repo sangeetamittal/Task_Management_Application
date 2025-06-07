@@ -1,4 +1,5 @@
 const Task = require('../../models/Task')
+const { validationResult } = require('express-validator');
 
 // Task can be created by Managers only
 const createTask = async (req, res) => {

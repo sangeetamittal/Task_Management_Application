@@ -1,4 +1,5 @@
 const Task = require('../../models/Task')
+const { validationResult } = require('express-validator');
 
 // Employee can update only status of task while Manager can update anything
 const updateTask = async (req, res) => {

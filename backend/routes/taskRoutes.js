@@ -13,16 +13,16 @@ const {check, param} =require('express-validator')
 router.post('/', [
     check('title').notEmpty().withMessage('Title is required'),
     check('description').optional().isString().withMessage('Description must be a string'),
-    body('status').optional().isIn(['Pending', 'Progress', 'Completed']).withMessage('Invalid status'),
+    check('status').optional().isIn(['Pending', 'Progress', 'Completed']).withMessage('Invalid status'),
     check('assignedTo').isMongoId().withMessage('AssignedTo must be a valid Mongo ID'),
-    check('dueDate').isISO8601.withMessage('Due date must be a valid date'),
+    check('dueDate').isISO8601().withMessage('Due date must be a valid date'),
 ], verifyToken, verifyRole('Manager'), createTask)
 
 router.get('/', verifyToken, verifyRole('Manager', 'Employee'), getTasks)
 
 router.put('/:id', [
     param('id').isMongoId().withMessage('Invalid task ID'),
-    body('status').optional().isIn(['Pending', 'Progress', 'Completed']).withMessage('Invalid status'),
+    check('status').optional().isIn(['Pending', 'Progress', 'Completed']).withMessage('Invalid status'),
     check('title').optional().isString(),
     check('description').optional().isString(),
     check('dueDate').optional().isISO8601(),
