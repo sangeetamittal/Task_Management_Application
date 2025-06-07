@@ -125,13 +125,7 @@ GET /api/users?role=Employee
 
 ```json
 {
-  "message": "User registered successfully",
-  "token": "jwt_token_here",
-  "user": {
-    "id": "user_id",
-    "username": "John",
-    "role": "Manager"
-  }
+  "message": "User registered successfully"
 }
 ```
 
@@ -160,18 +154,25 @@ GET /api/users?role=Employee
 **GET /api/tasks**
 
 ```json
-{
-  "tasks": [
-    {
-      "_id": "task_id",
-      "title": "Build UI",
-      "description": "React layout",
-      "assignedTo": { "_id": "emp_id", "username": "Raghav" },
-      "status": "Pending",
-      "dueDate": "2025-06-15T00:00:00.000Z"
-    }
-  ]
-}
+[
+  {
+    "_id": "6843cea8eaa40d10c37d4336",
+    "title": "Implement Login UI",
+    "description": "Design the login form in React",
+    "assignedTo": {
+      "_id": "68433411a96dec685efef689",
+      "username": "Deepak",
+      "email": "deepak@example.com",
+      "role": "Employee"
+    },
+    "status": "Pending",
+    "dueDate": "2025-06-15T00:00:00.000Z",
+    "createdBy": "684332153ef67b531ab19d88",
+    "createdAt": "2025-06-07T05:31:20.807Z",
+    "updatedAt": "2025-06-07T05:31:20.807Z",
+    "__v": 0
+  }
+]
 ```
 
 ---
