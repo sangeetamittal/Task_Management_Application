@@ -185,7 +185,7 @@ GET /api/users?role=Employee
 {
   "message": "Task created",
   "Task": {
-    "title": "Task For Emily",
+    "title": "Implement Login UI",
     "assignedTo": "employee_id",
     "status": "Pending",
     "dueDate": "2025-06-20T00:00:00.000Z",
