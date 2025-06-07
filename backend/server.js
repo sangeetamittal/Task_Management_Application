@@ -23,10 +23,7 @@ app.use('/api/tasks', taskRoutes)
 app.use('/api/users', userRoutes)
 
 //Connecting to MongoDB
-mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(process.env.MONGO_URL)
     .then(() => console.log('Database Connected'))
     .catch((err) => console.error('Database Connection Failed:', err));
 
