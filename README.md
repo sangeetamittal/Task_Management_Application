@@ -305,6 +305,7 @@ socket.on('task-updated', (task) => console.log(task));
 ├── models/            # Mongoose schemas
 ├── routes/            # Express route definitions
 ├── sockets/           # Socket.io event logic
+├── tests/             # Unit and integration testing
 ├── .env.example       # Sample env config
 ├── server.js          # Entry point
 ```
