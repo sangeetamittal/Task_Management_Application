@@ -43,6 +43,7 @@ Create a `.env` file in the `/backend` folder based on `.env.example`:
 ```env
 MONGO_URL=your_mongodb_atlas_url
 JWT_SECRET=your_secure_jwt_secret
+CLIENT_URL=your_client_url
 ```
 
 **Note:** Do not commit `.env` to version control.
@@ -54,7 +55,7 @@ nodemon server.js
 ```
 
 Server runs at:  
-`http://localhost:5000`
+`https://task-management-api-jymt.onrender.com`
 
 ---
 
@@ -289,9 +290,9 @@ socket.on('task-updated', (task) => console.log(task));
 
 ## 🧪 Bonus Features (Coming Soon)
 
-- [ ] Unit Testing (Jest / Supertest)
+- [✅] Unit Testing (Jest / Supertest)
+- [✅] Deployment to Render/Railway/Vercel
 - [ ] React Frontend
-- [ ] Deployment to Render/Railway/Vercel
 
 ---
 
