@@ -117,6 +117,19 @@ GET /api/users?role=Employee
 
 ---
 
+## 📝 Sample User Object
+
+```json
+{
+  "username": "raghav",
+  "email": "raghav@example.com",
+  "password": "password",
+  "role": "Employee"
+}
+```
+
+---
+
 ## 📤 Sample API Responses
 
 ### ✅ Register User
