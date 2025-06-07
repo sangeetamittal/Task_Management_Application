@@ -156,23 +156,102 @@ GET /api/users?role=Employee
 ```json
 [
   {
-    "_id": "6843cea8eaa40d10c37d4336",
+    "_id": "task_id",
     "title": "Implement Login UI",
     "description": "Design the login form in React",
     "assignedTo": {
-      "_id": "68433411a96dec685efef689",
+      "_id": "employee_id",
       "username": "Deepak",
       "email": "deepak@example.com",
       "role": "Employee"
     },
     "status": "Pending",
     "dueDate": "2025-06-15T00:00:00.000Z",
-    "createdBy": "684332153ef67b531ab19d88",
+    "createdBy": "manager_id",
     "createdAt": "2025-06-07T05:31:20.807Z",
     "updatedAt": "2025-06-07T05:31:20.807Z",
     "__v": 0
   }
 ]
+```
+
+---
+
+### ✅ Post Tasks
+
+**POST /api/tasks**
+
+```json
+{
+  "message": "Task created",
+  "Task": {
+    "title": "Task For Emily",
+    "assignedTo": "employee_id",
+    "status": "Pending",
+    "dueDate": "2025-06-20T00:00:00.000Z",
+    "createdBy": "manager_id",
+    "_id": "task_id",
+    "createdAt": "2025-06-07T12:14:45.393Z",
+    "updatedAt": "2025-06-07T12:14:45.393Z",
+    "__v": 0
+  }
+}
+```
+
+---
+
+### ✅ Delete Tasks
+
+**DELETE /api/tasks/:id**
+
+```json
+{
+  "message": "Task deleted successfully"
+}
+```
+
+---
+
+### ✅ Update Tasks
+
+**Update /api/tasks/:id**
+
+```json
+{
+  "message": "Task updated",
+  "task": {
+    "_id": "task_id",
+    "title": "Implement Login UI",
+    "description": "Design the login form in React",
+    "assignedTo": "employee_id",
+    "status": "Completed",
+    "dueDate": "2025-06-15T00:00:00.000Z",
+    "createdBy": "manager_id",
+    "createdAt": "2025-06-07T05:31:20.807Z",
+    "updatedAt": "2025-06-07T14:05:13.645Z",
+    "__v": 0
+  }
+}
+```
+
+### ✅ Get all users Task
+
+**GET /api/users**
+
+```json
+{
+  "users": [
+    {
+      "_id": "user_id",
+      "username": "Sangeeta",
+      "email": "sangeeta@example.com",
+      "role": "Manager",
+      "createdAt": "2025-06-06T18:23:17.157Z",
+      "updatedAt": "2025-06-06T18:23:17.157Z",
+      "__v": 0
+    }
+  ]
+}
 ```
 
 ---
