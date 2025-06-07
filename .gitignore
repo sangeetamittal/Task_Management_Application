@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+**/node_modules/
+
+# Env files
+.env
+.env.*
+/backend/.env
+
+# Ignore all .env.* EXCEPT .env.example
+!/backend/.env.example
+
+# VSCode files
+.vscode/
+
+# Logs
+*.log
+
+# Socket test file (I'll replace this with React later)
+backend/test_realtimecommun.html
