@@ -1,4 +1,3 @@
-
 # 📌 Task Management Backend System
 
 A collaborative task management backend built with **Node.js**, **Express**, **MongoDB**, and **Socket.io**, featuring secure JWT-based authentication, role-based access control, real-time updates, and RESTful APIs easily consumable by a React frontend.
@@ -91,7 +90,20 @@ Server runs at:
 
 ---
 
-### 📝 Sample Task Object
+### 👤 User Routes (Extra Endpoint)
+
+| Endpoint         | Method | Access   | Description                          |
+|------------------|--------|----------|--------------------------------------|
+| `/api/users`     | GET    | Manager  | Get all users (optionally filter by role) |
+
+Example:  
+```
+GET /api/users?role=Employee
+```
+
+---
+
+## 📝 Sample Task Object
 
 ```json
 {
@@ -100,6 +112,65 @@ Server runs at:
   "assignedTo": "<employee_user_id>",
   "status": "Pending",
   "dueDate": "2025-06-15"
+}
+```
+
+---
+
+## 📤 Sample API Responses
+
+### ✅ Register User
+
+**POST /api/auth/register**
+
+```json
+{
+  "message": "User registered successfully",
+  "token": "jwt_token_here",
+  "user": {
+    "id": "user_id",
+    "username": "John",
+    "role": "Manager"
+  }
+}
+```
+
+---
+
+### ✅ Login
+
+**POST /api/auth/login**
+
+```json
+{
+  "message": "Login Successful!",
+  "token": "jwt_token_here",
+  "user": {
+    "id": "user_id",
+    "username": "John",
+    "role": "Manager"
+  }
+}
+```
+
+---
+
+### ✅ Get Tasks
+
+**GET /api/tasks**
+
+```json
+{
+  "tasks": [
+    {
+      "_id": "task_id",
+      "title": "Build UI",
+      "description": "React layout",
+      "assignedTo": { "_id": "emp_id", "username": "Raghav" },
+      "status": "Pending",
+      "dueDate": "2025-06-15T00:00:00.000Z"
+    }
+  ]
 }
 ```
 

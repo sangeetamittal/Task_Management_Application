@@ -15,10 +15,12 @@ app.use(express.json())
 //Loading routes
 const authRoutes = require('./routes/authRoutes')
 const taskRoutes = require('./routes/taskRoutes')
+const userRoutes = require('./routes/userRoutes')
 
 //Mount routes
 app.use('/api/auth', authRoutes)
 app.use('/api/tasks', taskRoutes)
+app.use('/api/users', userRoutes)
 
 //Connecting to MongoDB
 mongoose.connect(process.env.MONGO_URL, {
