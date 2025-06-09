@@ -17,5 +17,4 @@ node_modules/
 *.log
 
 # Socket test file (I'll replace this with React later)
-backend/test_realtimecommun.html
 client/

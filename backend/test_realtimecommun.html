@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real-time Socket Test</title>
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+</head>
+<body>
+  <h2>Listening for Real-time Task Updates...</h2>
+  <div id="output"></div>
+
+  <script>
+    //Server url
+    const socket = io('http://localhost:5000');
+
+    // Replace this with the userId of a real Manager or Employee from MongoDB
+    const userId = '68433411a96dec685efef689';
+
+    // Register user to receive updates
+    socket.emit('register', userId);
+
+    // Listen for task assignment
+    socket.on('task-assigned', (task) => {
+      document.getElementById('output').innerHTML += `<p>📥 New Task Assigned: ${task.title}</p>`;
+    });
+
+    // Listen for task updates
+    socket.on('task-updated', (task) => {
+      document.getElementById('output').innerHTML += `<p>♻️ Task Updated: ${task.title} → ${task.status}</p>`;
+    });
+
+    socket.on('connect', () => {
+      console.log('Connected to Socket.io');
+    });
+  </script>
+</body>
+</html>
