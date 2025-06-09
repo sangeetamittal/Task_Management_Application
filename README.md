@@ -55,7 +55,7 @@ nodemon server.js
 ```
 
 Server runs at:  
-`https://task-management-api-jymt.onrender.com`
+`http://localhost:5000`
 
 ---
 
@@ -291,7 +291,7 @@ socket.on('task-updated', (task) => console.log(task));
 ## 🧪 Bonus Features (Coming Soon)
 
 - [✅] Unit Testing (Jest / Supertest)
-- [✅] Deployment to Render/Railway/Vercel
+- [✅] Deployment to Render  (Can be accessed at `https://task-management-api-jymt.onrender.com`)
 - [ ] React Frontend
 
 ---
